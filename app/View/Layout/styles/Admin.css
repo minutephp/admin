@@ -142,3 +142,11 @@ div.outline {
     width: auto !important;
     max-width: 45px;
 }
+
+section.content {
+    padding-bottom: 0;
+}
+
+.faded {
+    opacity: 0.5;
+}
