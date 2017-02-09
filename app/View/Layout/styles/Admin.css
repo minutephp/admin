@@ -150,3 +150,8 @@ section.content {
 .faded {
     opacity: 0.5;
 }
+
+span.divider {
+    border-left: 1px solid #eee;
+    padding: 2px;
+}
