@@ -36,10 +36,10 @@ namespace Minute\Todo {
 
             $todos[] = ['name' => 'Create a "signature" key in public keys', 'description' => 'To use {signature} tag in emails',
                         'status' => $this->config->get('public/signature') ? 'complete' : 'incomplete', 'link' => '/admin/config'];
-            $todos[] = ['name' => 'Create a "logo_dark_url" key in public keys', 'description' => 'Logo image for white background',
-                        'status' => $this->config->get('public/logo_dark_url') ? 'complete' : 'incomplete', 'link' => '/admin/config'];
-            $todos[] = ['name' => 'Create a "logo_light_url" key in public keys', 'description' => 'Logo image for black background',
-                        'status' => $this->config->get('public/logo_light_url') ? 'complete' : 'incomplete', 'link' => '/admin/config'];
+            $todos[] = ['name' => 'Create a "logo.dark" key in public keys', 'description' => 'Logo image for white background',
+                        'status' => $this->config->get('public/logo/dark') ? 'complete' : 'incomplete', 'link' => '/admin/config'];
+            $todos[] = ['name' => 'Create a "logo.light" key in public keys', 'description' => 'Logo image for black background',
+                        'status' => $this->config->get('public/logo/light') ? 'complete' : 'incomplete', 'link' => '/admin/config'];
             $todos[] = ['name' => 'Enable "Minify" plugin to compress js and css', 'description' => 'For faster website loading',
                         'status' => is_callable(['Minute\\Minify\\Minify', 'minify']) ? 'complete' : 'incomplete', 'link' => '/admin/plugins'];
             $todos[] = ['name' => 'Install web analytics', 'description' => 'For measuring traffic and advertising ROI',
@@ -47,6 +47,7 @@ namespace Minute\Todo {
             $todos[] = ['name' => 'Setup user groups for site', 'description' => 'To control website access',
                         'status' => is_array($groups) && count($groups) > 1 ? 'complete' : 'incomplete', 'link' => '/admin/user-groups'];
 
+            $todos[] = $this->todoMaker->createManualItem("webmaster-tools", "Setup webmaster tools", 'Get indexing and ranking data from Google.', '//www.google.com/webmasters/');
             $todos[] = $this->todoMaker->createManualItem("page-titles", "Setup page titles and descriptions", 'Helps improve website SEO', '/admin/page-titles');
 
             $event->addContent(['Admin' => $todos]);

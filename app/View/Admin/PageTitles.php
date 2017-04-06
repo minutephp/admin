@@ -31,8 +31,7 @@
                             </div>
                         </div>
 
-
-                        <div class="panel panel-default" ng-repeat="url in data.pages | orderBy:url"
+                        <div class="panel panel-default" ng-repeat="url in data.pages | orderBy:url track by $index"
                              ng-show="(!!data.all || !!mainCtrl.show(url)) && (!data.filter || mainCtrl.match(url, data.filter))">
                             <div class="panel-heading">
                                 <b class="pull-left">{{url}}</b>
