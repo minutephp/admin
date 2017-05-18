@@ -13,7 +13,7 @@
 <script src="/static/bower_components/angular-filter/dist/angular-filter.js"></script>
 <script src="/static/bower_components/AdminLTE/plugins/daterangepicker/moment.js"></script>
 <script src="/static/bower_components/angular-loading-bar/build/loading-bar.js"></script>
-<script src="/static/bower_components/angular-bs-tooltip/angular-bs-tooltip.js"></script>
+<script src="/static/bower_components/angular-bs-tip/src/js/angular-bs-tip.js"></script>
 <script src="/static/bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="/js/translations.js"></script>
 
