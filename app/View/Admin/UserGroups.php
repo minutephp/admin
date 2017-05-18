@@ -41,6 +41,9 @@
                                 <a class="btn btn-default btn-flat btn-sm" ng-click="mainCtrl.edit(key)">
                                     <span translate="">Edit..</span>
                                 </a>
+                                <a class="btn btn-default btn-flat btn-sm" ng-click="mainCtrl.remove(key)">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </div>
 
                             <div class="clearfix"></div>
