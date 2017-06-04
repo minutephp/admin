@@ -18,14 +18,18 @@
                         <h3 class="box-title"><span translate="">Site groups</span></h3>
 
                         <div class="box-tools">
-                            <button type="button" class="btn btn-flat btn-primary btn-sm" ng-click="mainCtrl.create()">
+                            <button type="button" class="btn btn-flat btn-success btn-sm" ng-click="mainCtrl.create()">
                                 <i class="fa fa-plus-circle"></i> <span translate="">Create new group</span>
+                            </button>
+
+                            <button type="button" class="btn btn-flat btn-primary btn-sm" ng-click="mainCtrl.save()">
+                                <i class="fa fa-check"></i> <span translate="">Save changes</span>
                             </button>
                         </div>
                     </div>
 
                     <div class="box-body">
-                        <div class="list-group-item list-group-item-bar" ng-repeat="(key, children) in settings.groups">
+                        <div class="list-group-item list-group-item-bar list-group-item-bar-{{settings.access[key] == 'primary' && 'success' || 'danger'}}" ng-repeat="(key, children) in settings.groups">
                             <div class="pull-left">
                                 <h4 class="list-group-item-heading">{{key | ucfirst}}</h4>
                                 <p class="list-group-item-text hidden-xs">
@@ -49,10 +53,6 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <hr>
-
-                        <button type="button" class="btn btn-flat btn-primary" ng-click="mainCtrl.save()"><i class="fa fa-check"></i> <span translate="">Save all groups</span></button>
-
                     </div>
                 </div>
             </form>
@@ -60,7 +60,7 @@
     </div>
 
     <script type="text/ng-template" id="/group-editor-popup.html">
-        <div class="box">
+        <div class="box box-md">
             <div class="box-header with-border">
                 <b class="pull-left"><span translate="">Edit group</span></b>
                 <a class="pull-right close-button" href=""><i class="fa fa-times"></i></a>
@@ -82,6 +82,19 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span translate="">Control:</span></label>
+                        <div class="col-sm-9">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="access[data.name]" ng-value="'primary'"> <span translate="">Primary access (account)</span>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="access[data.name]" ng-value="'secondary'"> <span translate="">Secondary access (bonuses)</span>
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="col-sm-3 control-label"><span translate="">Children:</span></label>
                         <div class="col-sm-9">
@@ -94,18 +107,19 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-flat btn-default btn-sm" ng-click="data.children.push('')"><i class="fa fa-check"></i> <span translate="">Add child</span></button>
+                            <p class="help-block">
+                                <button type="button" class="btn btn-flat btn-default btn-sm" ng-click="data.children.push('')"><i class="fa fa-check"></i> <span translate="">Add child</span></button>
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="box-footer with-border">
-                    <button type="submit" class="btn btn-flat btn-primary pull-right" ng-disabled="!groupForm.$valid">
+                    <button type="submit" class="btn btn-flat btn-primary" ng-disabled="!groupForm.$valid">
                         <span translate>Save group</span> <i class="fa fa-fw fa-angle-right"></i>
                     </button>
                 </div>
             </form>
         </div>
     </script>
-
 </div>
